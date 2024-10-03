@@ -1,10 +1,15 @@
 <!DOCTYPE html>
-<html><head></head>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
     <title>Hello World Page</title>
+    <link rel="stylesheet" 
+    href="style.css">
   </head>
-  <body >
-    <h1>Hello, World!</h1>
+  <body class="body">
+    <h1 >Hello, World!</h1>
     <p>This is my first HTML page2.</p>
-  
+    <a th:href="@{/login}">Home page</a>
+    <a href="">Home page</a>
 </body>
 </html>
