@@ -10,4 +10,4 @@ maven for Java
 
 run app from vs code terminal - mvn spring-boot:run  
 
-hosting website
+hosting website 
