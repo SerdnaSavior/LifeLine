@@ -16,9 +16,12 @@ mvn spring-boot:run
 https://lifelineclinic.azurewebsites.net/
 
 <h1> Tutorials </h1>
-https://www.geeksforgeeks.org/spring-boot - thymeleaf-with-example/
+https://www.geeksforgeeks.org/spring-boot-thymeleaf-with-example/
+
 https://www.youtube.com/watch?v=do7XqcaIkVk - Spring MVC Thymeleaf Tutorial with CRUD Example and Source Code
+
 https://www.youtube.com/watch?v=-T4x4-eIMLA - Develop Spring Boot App with Azure for MySQL Database | Spring Data JDBC (if you want to learn more on how i created the azure resoucres)
+
 https://www.linkedin.com/pulse/connecting-your-spring-boot-application-azure-dinuka-ekanayake-dpzuc - Connecting Your Spring Boot Application with Azure MySQL Server 
 
 
