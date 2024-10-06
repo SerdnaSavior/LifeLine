@@ -1,0 +1,101 @@
+body{
+    margin: 0;
+    padding: 0;    
+    height: 100vh;
+}
+
+.page {
+    font-family: Arial, sans-serif;
+    background-color: #67C8FF; /* Background color */
+    color: #333; /* Text color */        
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.signupbox{
+    width: 400px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: white;
+}
+
+h2{
+    text-align: center;
+    color: #3A60E6; /* Heading color */
+}
+
+.alert{
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.alert-danger{
+        /* Error message color */
+}
+
+.alert-success{
+        /* Success message color */
+}
+.signupForm{
+    width: 90%;
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center align items horizontally */
+    margin: 0 auto;
+    
+}
+
+input[type="text"], 
+input[type="email"], 
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 10px;
+    border: 1px solid #67C8FF; /* Input border color */
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+input[type="text"]:focus, 
+input[type="email"]:focus, 
+input[type="password"]:focus {
+    border-color: #3A60E6; /* Focus border color */
+    outline: none; /* Remove outline */
+}
+
+.signupForm button{
+    
+    width: 100%;
+    padding: 10px;
+    margin: 10px;
+    background-color: #1A2DAD; /* Button color */
+    color: white; /* Button text color */
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.signupForm button:hover {
+    background-color: #67C8FF; /* Button hover color */
+}
+
+p {
+    text-align: center;
+    margin-top: 15px;
+}
+
+a {
+    color: #3A60E6; /* Link color */
+    text-decoration: none; /* Remove underline */
+}
+
+a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
