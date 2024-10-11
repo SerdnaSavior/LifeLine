@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        .sidebar {
+            width: 150px;
+            background-color: #2c3e50;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .sidebar a {
+            color: white;
+            margin: 20px 0;
+            text-align: center;
+            display: block;
+            text-decoration: none;
+            font-size: 18px; /* Increase the font size */
+            padding: 10px 20px;
+            width: 100%;
+            text-align: left;
+        }
+
+        .sidebar a:hover {
+            background-color: #34495e;
+            border-radius: 8px;
+        }
+
+        .container {
+            margin-left: 160px; /* Adjust margin to match the sidebar width */
+            padding: 20px;
+        }
+
+        .dashboard-header {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 40px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 20px;
+        }
+
+        .card {
+            background-color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .card:hover {
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-icon {
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+
+        .card-title {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+
+   
+    <div class="container">
+        <div class="dashboard-header">Patient Dashboard</div>
+        
+        <div class="grid">
+            <div class="card">
+                <div class="card-icon">👤</div>
+                <div class="card-title">Profile</div>
+            </div>
+            <div class="card">
+                <div class="card-icon">📅</div>
+                <div class="card-title">Appointment</div>
+            </div>
+            <div class="card">
+                <div class="card-icon">📝</div>
+                <div class="card-title">Medical Report</div>
+            </div>
+            <div class="card">
+                <div class="card-icon">💊</div>
+                <div class="card-title">Medication</div>
+            </div>
+            <div class="card">
+                <div class="card-icon">🔬</div>
+                <div class="card-title">Laboratory Results</div>
+            </div>
+            <div class="card">
+                <div class="card-icon">💳</div>
+                <div class="card-title">Billing</div>
+            </div>
+            <div class="card">
+                <div class="card-icon">📧</div>
+                <div class="card-title">Messages</div>
+            </div>
+            <div class="card">
+                <div class="card-icon">⚙️</div>
+                <div class="card-title">Settings</div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
