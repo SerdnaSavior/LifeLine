@@ -5,9 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title th:block="${title}">Default Title</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> <!-- Bootstrap for styling -->
+    <link rel="stylesheet" href="styles.css"> 
 </head>
 <body>
-    <div th:replace= "~{layout :: header }">   </div>
-    <div th th:replace= "~{layout :: alert}"></div>
+   
+
+    
+    <div class="page">
+        <h2>Welcome, <span th:text="${username}"></span>!</h2>
+    </div>
 </body>
 </html>
