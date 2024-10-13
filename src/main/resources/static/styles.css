@@ -2,6 +2,7 @@ body{
     margin: 0;
     padding: 0;    
     height: 100vh;
+    background-color: #1A2DAD;
 }
 
 .page {
@@ -36,10 +37,12 @@ h2{
 
 .alert-danger{
         /* Error message color */
+        color: rgba(148, 6, 6, 0.993);
 }
 
 .alert-success{
         /* Success message color */
+        color: green;
 }
 .signupForm{
     width: 90%;
