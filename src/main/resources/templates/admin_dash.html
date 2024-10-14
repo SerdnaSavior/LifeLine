@@ -8,11 +8,17 @@
     <link rel="stylesheet" href="styles.css"> 
 </head>
 <body>
+   <div th:replace= "~{/layout :: header }"></div>
+
    
 
     
     <div class="page">
         <h2>Welcome, <span th:text="${username}"></span>!</h2>
     </div>
+
+    <div th:replace= "~{/layout :: footer }"></div>
+
+    
 </body>
 </html>

@@ -50,12 +50,27 @@ public class Logincontroller {
             redirectAttributes.addFlashAttribute("alertClass", "alert-danger");
             return "redirect:/login"; // Redirect back to the signup page
         }
+
         
-         // Store the user in the session if authenticated
-        session.setAttribute("currentUser", user.getUsername());
-        redirectAttributes.addFlashAttribute("message", "Success");
-        redirectAttributes.addFlashAttribute("alertClass", "alert-success");
-        return "redirect:/admin_dash";
+
+        if(user.getRole().equals("ADMIN")){
+           // Store the user in the session if authenticated
+            session.setAttribute("currentUser", user);
+            
+            redirectAttributes.addFlashAttribute("message", "Success");
+            redirectAttributes.addFlashAttribute("alertClass", "alert-success");
+            return "redirect:/admin_dash"; 
+        }
+
+        
+            // Store the user in the session if authenticated
+            session.setAttribute("currentUser", user);
+            
+            redirectAttributes.addFlashAttribute("message", "Success");
+            redirectAttributes.addFlashAttribute("alertClass", "alert-success");
+            return "redirect:/pat_dash"; 
+        
+         
     }
 }
 
