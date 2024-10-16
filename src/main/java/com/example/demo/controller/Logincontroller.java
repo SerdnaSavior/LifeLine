@@ -37,7 +37,7 @@ public class Logincontroller {
     } 
 
     @PostMapping()
-    public String postMethodName( @RequestParam String username,
+    public String login( @RequestParam String username,
             @RequestParam String password, RedirectAttributes redirectAttributes,HttpSession session) {
         
         // check if username exists in database and password matches 
@@ -57,8 +57,10 @@ public class Logincontroller {
            // Store the user in the session if authenticated
             session.setAttribute("currentUser", user);
             
-            redirectAttributes.addFlashAttribute("message", "Success");
+            redirectAttributes.addFlashAttribute("message", "Login Successful! Welcome " + username);
             redirectAttributes.addFlashAttribute("alertClass", "alert-success");
+            redirectAttributes.addFlashAttribute("username", username);
+
             return "redirect:/admin_dash"; 
         }
 
@@ -66,8 +68,9 @@ public class Logincontroller {
             // Store the user in the session if authenticated
             session.setAttribute("currentUser", user);
             
-            redirectAttributes.addFlashAttribute("message", "Success");
+            redirectAttributes.addFlashAttribute("message", "Login Successful! Welcome " + username);
             redirectAttributes.addFlashAttribute("alertClass", "alert-success");
+            redirectAttributes.addFlashAttribute("username", username);
             return "redirect:/pat_dash"; 
         
          

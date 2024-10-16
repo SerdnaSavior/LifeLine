@@ -2,18 +2,61 @@ body{
     font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f5f5f5;
+            background-color: #128ACA
 }
 
 .page {
     font-family: Arial, sans-serif;
-    background-color: #67C8FF; /* Background color */
+    background-color: #128ACA; /* Background color */
     color: #333; /* Text color */        
     display: flex;
     justify-content: center;
     align-items: center;
     height: 90vh;
 }
+
+        /* Background settings */
+        .homepage {            
+            background-size: cover;
+            height: 100%;
+            display: flex;           
+            position: relative;
+            
+        }
+        #logo{
+            position: absolute;
+            z-index: 0;
+            
+            
+        }
+        /* Welcome box styling */
+        .welcome-box {
+            background-color: rgba(255, 255, 255, 0.5); /* 50% opacity */
+            padding: 20px;
+            width: 50%;
+            height: 50%;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .welcome-box h1 {
+            font-size: 36px;
+            color: #333;
+        }
+
+        .welcome-box p {
+            font-size: 18px;
+            color: #555;
+        }
+
+        /* Mobile responsive adjustments */
+        @media (max-width: 768px) {
+            .welcome-box {
+                width: 80%;
+            }
+        }
 
 /* login and signup */
 .signupbox{
@@ -96,7 +139,7 @@ p {
 }
 
 a {
-    color: #3A60E6; /* Link color */
+    color: #128ACA; /* Link color */
     text-decoration: none; /* Remove underline */
 }
 
@@ -155,7 +198,7 @@ a:hover {
 	left: 0;
 	background-color: #111; /* Black*/
 	overflow-x: hidden; /* Disable horizontal scroll */
-	padding-top: 60px; /* Place content 60px from the top */
+	padding-top: 10px; /* Place content 60px from the top */
 	transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
     text-align: left;
   }
@@ -184,6 +227,14 @@ a:hover {
 	font-size: 36px;
 	margin-left: 50px;
   }
+  #dashlogo{
+    position: relative;
+    top: 0; 
+    right: auto;
+    left: auto;
+    
+    z-index: -1;
+  }
   
   /* The button used to open the sidebar */
   .openbtn {    
@@ -191,14 +242,14 @@ a:hover {
 	cursor: pointer;
 	text-align: center;
 	color: rgb(0, 0, 0);
-    background-color: #f8f9fa;;	
+    background-color: #ffffff;;	
 	border: none;
 	height: 40px;
     width: 40px;
     z-index: 2;	
   }  
   .openbtn:hover {
-	color: #9cc3e9;
+	color: #128ACA;
   }
 
   /* navbar styling */
@@ -207,7 +258,7 @@ a:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #f8f9fa;
+    background-color: #ffffff;
     padding: 10px 20px;
 }
 
@@ -216,6 +267,7 @@ a:hover {
     font-weight: bold;
     text-decoration: none;
     color: #333;
+    text-align:  center;
 }
 
 /* Right-aligned navbar list */
@@ -240,9 +292,7 @@ a:hover {
     z-index: 1;
 }
 
-.nav-link:hover {
-    background-color: #ddd;
-}
+
 
 /* Dropdown menu */
 .dropdown-content {
@@ -372,8 +422,12 @@ a:hover {
     margin: 0;
     font-size: 2.5em;
 }
-.container {
+.profile-info {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
+    text-align: center;
+}
+.profile-info a{
+    color: #ffffff;
 }
