@@ -46,6 +46,7 @@ public class Signupcontroller {
         userServiceImpl.save(user);
         redirectAttributes.addFlashAttribute("message", "Success");
         redirectAttributes.addFlashAttribute("alertClass", "alert-success");
+      
         return "redirect:/login";
     }
 }

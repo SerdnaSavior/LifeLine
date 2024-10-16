@@ -16,7 +16,9 @@
             <!-- Navigation bar -->
             <nav class="navbar">
                 <!-- Brand Name -->
-                <a class="navbar-brand" href="#"><button class="openbtn" onclick="openNav()">&#9776;</button>Lifeline</a>
+                 <button class="openbtn" onclick="openNav()">&#9776;</button>
+
+                <a class="navbar-brand" href="#"><img src="imgs/minilogo.png">   Lifeline</a>
     
                 <!-- Right-aligned content (user profile) -->
                 <ul class="navbar-right">
@@ -27,23 +29,21 @@
     
                         <!-- Dropdown Menu -->
                         <div class="dropdown-content" id="dropdownMenu">
-                            <a class="dropdown-item" href="#">Profile</a>
+                            <a class="dropdown-item" th:href= "@{/view_profile}">Profile</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" th:href="@{/logout}">Logout</a>
                         </div>
                     </li>
                 </ul>
             </nav>
-        </header>       
-    </div>
-    
-
-    <div th:fragment= "alert">
-         <!-- Display flash attributes -->
-         <div th:if="${message}" class="alert" th:class="${alertClass}">
+        </header>
+        <!-- Display flash attributes -->
+        <div th:if="${message}" class="alert" th:class="${alertClass}">
             <span th:text="${message}"></span>
-        </div>
-    </div>
+        </div>       
+    </div> 
+
+    
     
     <div th:fragment= "footer">
             <footer class="text-center">
@@ -51,24 +51,28 @@
                         <!-- Sidebar Script -->
                 <script src="sidebar.js"></script>
                 <div  id='mySidebar' class='sidebar'>
-                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                    <img id="dashlogo" src="imgs/dashlogo.png" alt="">
+                        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                    <div>
                     
-                    <!-- <a href='{{homeRoute}}'>Dashboard</a>
-                    <a href="{{ url_for('chart.journal_entry') }}">View Ledgers</a>
-                    <a href="{{ url_for('chart.view_accounts') }}">View Accounts</a>
-                    <a href="{{ url_for('eventlog.view_eventlogs') }}">View Event Logs</a>
                     
-                    <a href='{{homeRoute}}'>Dashboard</a>
-                    <a href="{{ url_for('views.view_users') }}">View Users</a>
-                    <a href="{{ url_for('chart.journal_entry') }}">View Ledgers</a>
-                    <a href="{{ url_for('chart.view_accounts') }}">View Accounts</a>
-                    <a href="{{ url_for('eventlog.view_eventlogs') }}">View Event Logs</a> -->
-                
-                    <a href=''>Home</a>
+                    <div th:if="${user != null}">
+                    <div th:if="${'ADMIN'== user.getRole()}">
+                    <a th:href= "@{/admin_dash}">Dash</a>
                     <a href="">Login</a>
                     <a href="">Sign-up</a>
-                    <a href=''>Contact-Us</a>
-                    <a th:href= "@{/aboutus}">About-us</a>                    
+                    <a th:text="${user.getRole()}"></a>
+                    <a th:href= "@{/aboutus}">About-us</a> 
+                    </div>
+                    </div>
+                    
+                    
+                   <div th:if="${user == null}">
+                    <a th:href= "@{/}">Home</a>
+                    <a th:href= "@{/login}">Login</a>
+                    <a th:href= "@{/signup}">Sign-up</a>                    
+                    <a th:href= "@{/aboutus}">About-us</a>     
+                   </div>               
                 </div>
                 
             </footer>
