@@ -1,15 +1,37 @@
 <!DOCTYPE html>
-<html lang="en"  >
+<html lang="en" >
 <head>
     <meta charset="ISO-8859-1">
-    <title>Hello World Page</title>
-    <link rel="stylesheet" 
-    href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="styles.css">
   </head>
-  <body class="body">
-    <h1 >Hello, World!</h1>
-    <p>This is my first HTML page2.</p>
-    <a >Home page</a>
-    <a href="/login"> Home page</a>
+  <body >
+
+    <div><button class="openbtn" onclick="openNav()" style="background-color: #128ACA">&#9776;</button></div>
+    <div class="page">
+      
+      <img id="logo" src="imgs/lifelogo.png">
+      <div class="welcome-box">
+          <h1>Welcome to Lifeline Clinic</h1>
+          <p>
+              We are committed to providing you with the best healthcare experience, where your health and well-being come first. Explore our services and feel free to reach out for any assistance.
+          </p>
+      </div>
+  </div>
+
+  <script src="sidebar.js"></script>
+                <div  id='mySidebar' class='sidebar'>
+                <div>
+                    
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                     
+                    <a href="/">Home</a>
+                    <a href="/login">Login</a>
+                    <a href="">Sign-up</a>
+                    <a href=''>Contact-Us</a>
+                    <a href= "/aboutus">About-us</a>     
+                                 
+                </div>
 </body>
 </html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Lifeline Clinic</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> <!-- Bootstrap for styling -->
+    <link rel="stylesheet" href="styles.css">
+   
+</head>
+<body>
+    <div th:replace= "~{/layout :: header}"></div>
+    <div class="topbar">
+        <h1>About Lifeline Clinic</h1>
+    </div>
+
+    <div class="container">
+        <div class="about-section">
+            <h2>Who We Are</h2>
+            <p>At Lifeline Clinic, we are a dedicated team of students committed to developing a comprehensive healthcare management system that enhances the physical, emotional, and mental well-being of patients. <br>Our project is driven by the belief that everyone deserves access to high-quality healthcare, and we aim to create a user-friendly platform that empowers patients and healthcare providers alike.
+
+                <br>We are passionate about leveraging our diverse skills in software development, user experience design, and healthcare knowledge to deliver a system that supports personalized patient care. <br> Through collaborative teamwork and innovative thinking, we strive to ensure that every user feels valued and supported.
+                
+                Since the inception of this project, we have focused on creating a solution that not only meets the needs of healthcare professionals but also fosters an environment where patients can easily navigate their healthcare journeys. <br>Our goal is to equip individuals with the information and tools they need to lead healthier lives, from routine checkups to specialized treatments.
+                
+                <br> We are excited to contribute to the Lifeline Clinic initiative and are committed to excellence in everything we do. Together, we are here to help improve healthcare delivery for our community.</p>
+        </div>
+
+        <div class="team-section">
+            <h2>Meet Our Team</h2>
+            <div class="team-members">
+                <div class="team-member">
+                    <img src="https://via.placeholder.com/150" alt="Doctor Husain">
+                    <h3>Husain Falih</h3>
+                    <p></p>
+                </div>
+                <div class="team-member">
+                    <img src="https://via.placeholder.com/150" alt="Doctor Zakieh Alo">
+                    <h3>Zakieh Alo</h3>
+                    <p></p>
+                </div>
+                <div class="team-member">
+                    <img src="https://via.placeholder.com/150" alt="Nurse Selihom">
+                    <h3>Selihom</h3>
+                    <p></p>
+                </div>
+                <div class="team-member">
+                    <img src="https://via.placeholder.com/150" alt="Nurse Selihom">
+                    <h3>Andres Contreras</h3>
+                    <p>Team Leader</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-section">
+            <h2>Contact Us</h2>            
+            <p>Email: contact@lifelineclinic.com</p>
+            <p>Phone: +123 456 7890</p>
+            <p>Address: 123 Health Ave, Wellness City, WL 45678</p>
+        </div>
+    </div>
+
+    <div th:replace= "~{/layout :: footer}"></div>
+
+</body>
+</html>

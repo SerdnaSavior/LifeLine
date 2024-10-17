@@ -8,24 +8,75 @@
     <link rel="stylesheet" href="styles.css"> 
 </head>
 <body >
-    <div th:fragment="header">
-    <header >
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">My Application</a>            
-        </nav>
-    </header>
-    </div>
-    <div t th:fragment= "alert">
-         <!-- Display flash attributes -->
-         <div th:if="${message}" class="alert" th:class="${alertClass}">
-            <span th:text="${message}"></span>
+    <div th:fragment="header" >
+    <header>
+        <!-- Button to open a side navigation menu -->
+        <button class="openbtn" onclick="openNav()">&#9776;</button>
+
+        <!-- Brand Name -->
+        <div class="brand">
+            <a class="navbar-brand" href="#"><img src="imgs/minilogo.png" alt="Logo"> Lifeline</a>
         </div>
-    </div>
+
+        <!-- Right-aligned content (user profile) -->
+        <ul class="navbar-right">
+            <!-- Check if user is logged in -->
+            <li class="nav-item" th:if="${user != null}">
+                <a class="nav-link" id="userDropdown" onclick="toggleDropdown()" th:text="${user.username}"></a>
+
+                <!-- Dropdown Menu -->
+                <div class="dropdown-content" id="dropdownMenu">
+                    <a class="dropdown-item" th:href="@{/view_profile}">Profile</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" th:href="@{/logout}">Logout</a>
+                </div>
+            </li>
+        </ul>
+    </header>
+
+        <!-- Display flash attributes -->
+        <div th:if="${message}" class="alert" th:class="${alertClass}">
+            <span th:text="${message}"></span>
+        </div>       
+    </div> 
+
     
-    <div th:fragment= "footer">
-    <footer class="text-center">
-        <p>&copy; 2024 My Application. All rights reserved.</p>
-    </footer>
+    
+    <div th:fragment= "footer" >
+            <footer >
+                        <p>&copy; 2024 My Application. All rights reserved.</p>
+                        <!-- Sidebar Script -->
+                <script src="sidebar.js"></script>
+                <div  id='mySidebar' class='sidebar'>
+                    <img id="dashlogo" src="imgs/dashlogo.png" alt="">
+                        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                    <div>
+                    
+                    
+                    <div th:if="${user != null}">
+                    <div th:if="${'ADMIN'== user.getRole()}">
+                    <a th:href= "@{/admin_dash}">Dash</a>
+                    <a href="">Login</a>
+                    <a href="">Sign-up</a>
+                    <a th:text="${user.getRole()}"></a>
+                    <a th:href= "@{/aboutus}">About-us</a> 
+                    </div>
+                    </div>
+                    
+                    
+                   <div th:if="${user == null}">
+                    <a th:href= "@{/}">Home</a>
+                    <a th:href= "@{/login}">Login</a>
+                    <a th:href= "@{/signup}">Sign-up</a>                    
+                    <a th:href= "@{/aboutus}">About-us</a>     
+                   </div>               
+                </div>
+                
+            </footer>
     </div>
+
+    
+
+    
 </body>
 </html>

@@ -9,17 +9,11 @@
 </head>
 
 <body>
-    
+    <div th:replace= "~{/layout :: header}"></div>
     <div class="page">
         <div class="signupbox">
-        <!-- Display flash attributes -->
-            <div th:if="${message}" class="alert" th:class="${alertClass}">
-                <span th:text="${message}"></span>
-            </div>
-            <!-- <div th:if="${param.error}">
-                Invalid username and password.</div>
-            <div th:if="${param.logout}">
-                You have been logged out.</div> -->
+        
+            
                 <h2>Login</h2>
                 <form class="signupForm" th:action="@{/login}" th:object="${user}" method="POST">
                     <input type="text" name="username" placeholder="Username" required>
@@ -51,7 +45,8 @@
                 </table>
         </div>
     </div>
-        
+    
+    <div th:replace= "~{/layout :: footer}"></div>
 
      
        

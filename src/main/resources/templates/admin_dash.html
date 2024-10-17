@@ -8,11 +8,54 @@
     <link rel="stylesheet" href="styles.css"> 
 </head>
 <body>
+   <div th:replace= "~{/layout :: header }"></div>
+
    
 
     
     <div class="page">
-        <h2>Welcome, <span th:text="${username}"></span>!</h2>
+        <div class="container">
+            <div class="dashboard-header">Patient Dashboard</div>
+            
+            <div class="grid">           
+                <div class="card">
+                    <div class="card-icon">📅</div>
+                    <div class="card-title">Appointment</div>
+                </div>
+                <a th:if="${user.getRole() == 'ADMIN'}" th:href="@{/registerPatient}">
+                    <div class="card">
+                        <div class="card-icon">📝</div>
+                        <div class="card-title">Register Patient</div>
+                    </div>
+                </a>
+                <a th:if="${user.getRole() == 'ADMIN'}" th:href="@{/viewPatients}">
+                    <div class="card">
+                        <div class="card-icon">📝</div>
+                        <div class="card-title">View Patients</div>
+                    </div>
+                </a>
+                <div class="card">
+                    <div class="card-icon">🔬</div>
+                    <div class="card-title">Laboratory Results</div>
+                </div>
+                <div class="card">
+                    <div class="card-icon">💳</div>
+                    <div class="card-title">Billing</div>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📧</div>
+                    <div class="card-title">Messages</div>
+                </div>
+                <div class="card">
+                    <div class="card-icon">⚙️</div>
+                    <div class="card-title">Settings</div>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <div th:replace= "~{/layout :: footer }"></div>
+
+    
 </body>
 </html>

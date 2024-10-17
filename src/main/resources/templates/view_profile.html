@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> <!-- Bootstrap for styling -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div th:replace= "~{/layout :: header}"></div>
+    <div class="page">
+    <div class="profile-info">
+        <h1>Profile</h1>
+        <div >
+            <p ><strong>Fist Name:</strong> <span th:text="${user.getFirst_name}"></span></p>
+            <p><strong>Last Name:</strong> <span th:text="${user.getLast_name}"></span></p>
+            <p><strong>Email:</strong> <span th:text="${user.getEmail()}"></span></p>
+            <p><strong>DOB:</strong> <span th:text="${user.getDob}"></span></p>
+        </div>
+        <a th:href="@{/edit_profile}" class="">Edit Profile</a>
+    </div>
+    </div>
+    <div th:replace= "~{/layout :: footer }"></div>
+</body>
+</html>

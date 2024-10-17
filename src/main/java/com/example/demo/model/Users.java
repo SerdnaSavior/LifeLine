@@ -1,6 +1,8 @@
 package com.example.demo.model;
 
 
+import java.time.LocalDate;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -15,21 +17,27 @@ public class Users {
     private String email;
     private String password;
     private String role;
+    private String first_name;
+    private String last_name;
+    private LocalDate dob;
 
     
 
  // Constructor
  public Users() {
     // This can be left empty or used to initialize default values if needed
-    this.role = "patient";
+    
 }
 
- public Users(int id, String username, String email, String password, String role) {
+ public Users(int id, String username, String email, String password, String role,String first_name,String last_name,
+LocalDate dob) {
     this.user_id = id;
     this.username = username;
     this.email = email;
-    this.password = password;
-    this.role = (role == null || role.isEmpty()) ? "patient" : role;
+    this.password = password;    
+    this.first_name =first_name;
+    this.last_name=last_name;
+    this.dob=dob;
 }
 
     public int getUser_id() {
@@ -70,6 +78,26 @@ public class Users {
     public void setRole(String role) {
         this.role = role;
     }
+    public String getFirst_name() {
+        return first_name;
+    }
 
+    public void setFirst_name(String first_name) {
+        this.first_name = first_name;
+    }
+    public String getLast_name() {
+        return last_name;
+    }
+
+    public void setLast_name(String last_name) {
+        this.last_name = last_name;
+    }
+    public LocalDate getDob() {
+        return dob;
+    }
+
+    public void setDob(LocalDate dob) {
+        this.dob = dob;
+    }
 }
     
