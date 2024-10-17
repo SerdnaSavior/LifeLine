@@ -26,7 +26,7 @@ public class Users {
  // Constructor
  public Users() {
     // This can be left empty or used to initialize default values if needed
-    this.role = "patient";
+    
 }
 
  public Users(int id, String username, String email, String password, String role,String first_name,String last_name,
@@ -34,8 +34,7 @@ LocalDate dob) {
     this.user_id = id;
     this.username = username;
     this.email = email;
-    this.password = password;
-    this.role = (role == null || role.isEmpty()) ? "patient" : role;
+    this.password = password;    
     this.first_name =first_name;
     this.last_name=last_name;
     this.dob=dob;

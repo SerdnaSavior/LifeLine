@@ -15,13 +15,13 @@
         <div class="dashboard-header">Patient Dashboard</div>
         
         <div class="grid">           
-            <div class="card">
-                <div class="card-icon">📅</div>
+            <div class="card"  th:if= "${user.getRole()== 'ADMIN'}">
+                <div class="card-icon" >📅</div>
                 <div class="card-title">Appointment</div>
             </div>
-            <div class="card">
+            <div class="card" th:if= "${user.getRole()== 'ADMIN'}">
                 <div class="card-icon">📝</div>
-                <div class="card-title">Medical Report</div>
+                <div class="card-title">Register Patient</div>
             </div>
             <div class="card">
                 <div class="card-icon">💊</div>

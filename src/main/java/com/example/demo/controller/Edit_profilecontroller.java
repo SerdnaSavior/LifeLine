@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.demo.model.Users;
@@ -44,6 +45,7 @@ public class Edit_profilecontroller {
     public String editUser(HttpSession session,@ModelAttribute("user") Users user,RedirectAttributes redirectAttributes,Model model) {
         Users currentUser = (Users) session.getAttribute("currentUser");
 
+
         
             // Update the existing user's fields with the form data
             currentUser.setFirst_name(user.getFirst_name());
@@ -55,6 +57,12 @@ public class Edit_profilecontroller {
             currentUser.setEmail(user.getEmail());
             if (!user.getPassword().isEmpty()) {
                 // Update password only if provided and apply hashing if necessary
+                // if (!user.getPassword().equals(confirmpassword)) {
+                //     redirectAttributes.addFlashAttribute("message", "Passwords do not match!");
+                //     redirectAttributes.addFlashAttribute("alertClass", "alert-danger");
+                //     return "redirect:/edit_profile"; // Redirect back to the signup page
+                    
+                // }
                 currentUser.setPassword(user.getPassword()); // remember to hash the password
             }    
 
