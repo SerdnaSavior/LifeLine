@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Patient Profiles</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Optional: Link to your CSS file -->
+</head>
+<body>
+    <div th:replace= "~{/layout :: header}"></div>
+
+    <div class="page">
+
+        <div class="registerPatientBox">
+            <h2>View Patient Profiles</h2>
+
+            <!-- Search Form -->
+            <form  th:action="@{/viewPatients}" method="get">
+                <div class="form-group">
+                    <label for="searchTerm">Search by Last Name or ID:</label>
+                    <input type="text" id="searchTerm" name="searchTerm" placeholder="Enter name or ID" >
+                    <button type="submit">Search</button>
+                </div>
+            </form>
+
+            <!-- Patient List Table -->
+            <div th:if="${patients != null}">
+                <h3>Search Results</h3>
+                <table class="styled-table">
+                    <thead>
+                        <tr>
+                            <th>Patient ID</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Age</th>
+                            <th>Address</th>
+                            <th>Contact</th>
+                            <th>Email</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="patient : ${patients}">
+                            <td th:text="${patient.id}"></td>
+                            <td th:text="${patient.first_name}"></td>
+                            <td th:text="${patient.last_name}"></td>
+                            <td th:text="${patient.age}"></td> <!-- Calls getAge() -->
+                            <td th:text="${patient.address}"></td>
+                            <td th:text="${patient.phone_number}"></td>
+                            <td th:text="${patient.email}"></td>
+                            <td>
+                            <a th:href="@{/patientProfile/{id}(id=${patient.id})}">View Profile</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- No results message -->
+            <div th:if="${patients == null}">
+                <p>No patients found. Try searching for a different name or ID.</p>
+            </div>
+        </div>
+    </div>
+    <div th:replace= "~{/layout :: footer }"></div>
+
+</body>
+</html>
