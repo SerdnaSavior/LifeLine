@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Patient Profiles</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Optional: Link to your CSS file -->
+</head>
+<body>
+    <!-- Header -->
+    <div th:replace="~{/layout :: header}"></div>
+
+    <!-- Profile Page -->
+    <div class="page">
+        <div class="profile-info">
+                <h2>Patient Profile</h2>
+
+            <!-- Personal Information -->
+            <h3>Personal Information</h3>
+            <div class="patient-details">
+                <p><strong>Patient ID:</strong> <span th:text="${patient.id}"></span></p>
+                <p><strong>First Name:</strong> <span th:text="${patient.first_name}"></span></p>
+                <p><strong>Last Name:</strong> <span th:text="${patient.last_name}"></span></p>
+                <p><strong>Date of Birth:</strong> <span th:text="${patient.dob}"></span></p>
+                <p><strong>Gender:</strong> <span th:text="${patient.gender}"></span></p>
+                <p><strong>Blood Type:</strong> <span th:text="${patient.blood_type}"></span></p>
+                <p><strong>Marital Status:</strong> <span th:text="${patient.marital_status}"></span></p>
+            </div>
+
+            <!-- Contact Information -->
+            <h3>Contact Information</h3>
+            <div class="patient-details">
+                <p><strong>Address:</strong> <span th:text="${patient.address}"></span></p>
+                <p><strong>City:</strong> <span th:text="${patient.city}"></span></p>
+                <p><strong>State:</strong> <span th:text="${patient.state}"></span></p>
+                <p><strong>Postal Code:</strong> <span th:text="${patient.postal_code}"></span></p>
+                <p><strong>Phone:</strong> <span th:text="${patient.phone_number}"></span></p>
+                <p><strong>Email:</strong> <span th:text="${patient.email}"></span></p>
+            </div>
+
+            <!-- Emergency Contact Information -->
+            <h3>Emergency Contact Information</h3>
+            <div class="patient-details">
+                <p><strong>Contact Name:</strong> <span th:text="${patient.emergency_contact_name}"></span></p>
+                <p><strong>Contact Phone:</strong> <span th:text="${patient.emergency_contact_phone}"></span></p>
+            </div>
+
+            <!-- Medical Information -->
+            <h3>Medical Information</h3>
+            <div class="patient-details">
+                <p><strong>Allergies:</strong> <span th:text="${patient.allergies}"></span></p>
+                <p><strong>Height:</strong> <span th:text="${patient.height}"></span> cm</p>
+                <p><strong>Weight:</strong> <span th:text="${patient.weight}"></span> Lbs</p>
+                <p><strong>Blood Pressure:</strong> <span th:text="${patient.blood_pressure}"></span></p>
+                <p><strong>Medical History:</strong> <span th:text="${patient.medical_history}"></span></p>
+            </div>
+
+            <!-- Insurance Information -->
+            <h3>Insurance Information</h3>
+            <div class="patient-details">
+                <p><strong>Insurance Provider:</strong> <span th:text="${patient.insurance_provider}"></span></p>
+                <p><strong>Policy Number:</strong> <span th:text="${patient.insurance_policy_number}"></span></p>
+                <p><strong>Expiration Date:</strong> <span th:text="${patient.insurance_expiration_date}"></span></p>
+                <p><strong>Insurance Type:</strong> <span th:text="${patient.insurance_type}"></span></p>
+            </div>
+
+            <!-- Administrative Details -->
+            <h3>Administrative Details</h3>
+            <div class="patient-details">
+                <p><strong>Date of Registration:</strong> <span th:text="${patient.date_of_registration}"></span></p>
+                <p><strong>Doctor Assigned:</strong> <span th:text="${patient.doctor_assigned}"></span></p>
+                <p><strong>Appointment History:</strong> <span th:text="${patient.appointment_history}"></span></p>
+            </div>
+            <a th:href="@{/updatePatient}" class="">Edit Patient Profile</a>
+        </div> 
+    </div>
+    <!-- Footer -->
+    <div th:replace="~{/layout :: footer}"></div>
+</body>
+</html>

@@ -32,7 +32,7 @@ public class Admin_Dashcontroller{
             }
 
             // Add user info to the model to display on the dashboard
-            model.addAttribute("username", currentUser.getUsername());
+            
             model.addAttribute("user", currentUser);
              return "admin_dash";
 }
