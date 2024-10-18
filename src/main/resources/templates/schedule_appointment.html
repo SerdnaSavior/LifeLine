@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Patient</title>
+    
+    <link rel="stylesheet" href="styles.css"> <!-- Optional: Link to your CSS file -->
+</head>
+<body>
+
+    <div th:replace= "~{/layout :: header}"></div>
+        <div class="page">
+                <div class="registerPatientBox">
+            <h2>Schedule an Appointment</h2><br>
+            <form th:action="@{/schedule_appointment}" method="post" th:object="${appointment}" class="signupForm">
+                <div class="form-group">
+                    
+                    <label for="patientName">Patient First Name</label>
+                    <input type="text" id="patientName" th:field="*{patientFirstName}"  required>
+                </div>
+                <div class="form-group">
+                    <label for="patientName">Patient Last Name</label>
+                    <input type="text" id="patientName" th:field="*{patientLastName}"  required>
+                </div>
+                <div class="form-group">
+                    <label for="appointmentDate">Appointment Date</label>
+                    <input type="date" id="appointmentDate" th:field="*{appointmentDate}"  required>
+                </div>
+                <div class="form-group">
+                    <label for="doctor">Doctor</label>
+                    <input type="text" id="doctor" th:field="*{doctor}"  required>
+                </div>
+                <div class="form-group">
+                    <label for="reason">Reason for Visit</label>
+                    <textarea id="reason" th:field="*{reason}"  required></textarea>
+                </div>
+                <button type="submit" >Book Appointment</button>
+            </form>
+        </div>
+    </div>
+    <div th:replace= "~{layout :: footer}"></div>
+</body>
+</html>
