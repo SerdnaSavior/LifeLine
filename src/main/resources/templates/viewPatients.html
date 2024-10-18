@@ -49,7 +49,7 @@
                             <td th:text="${patient.phone_number}"></td>
                             <td th:text="${patient.email}"></td>
                             <td>
-                            <a th:href="@{/patientProfile/{id}(id=${patient.id})}">View Profile</a>
+                            <a th:href="@{/patientProfile(id=${patient.id})}">View Profile</a>
                             </td>
                         </tr>
                     </tbody>

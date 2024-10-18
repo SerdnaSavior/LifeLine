@@ -4,6 +4,8 @@ import java.util.Optional;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.azure.core.exception.ResourceNotFoundException;
 import com.example.demo.model.Patients;
 import com.example.demo.repo.PatientRepository;
 
@@ -53,6 +55,7 @@ public class PatientServiceImpl
         } catch (NumberFormatException e) {
             return patientRepo.findByNameOrId(searchTerm, null); // Search by last name
         }
+         
     }
     
 }

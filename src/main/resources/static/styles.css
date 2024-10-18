@@ -117,12 +117,12 @@ h2{
 
 .alert-danger{
         /* Error message color */
-        color: rgba(148, 6, 6, 0.993);
+       background-color: rgba(148, 6, 6, 0.993);
 }
 
 .alert-success{
         /* Success message color */
-        color: green;
+        background-color: green;
 }
 .signupForm{
     width: 90%;
@@ -587,4 +587,17 @@ a:hover {
 
 .styled-table td a.btn:hover {
     background-color: #45a049;
+}
+.patient-details {
+    margin-bottom: 20px; /* Spacing between details sections */
+    padding: 15px;
+    background-color: #f9f9f9; /* Light grey background for details */
+    border-radius: 5px; /* Slightly rounded corners for details */
+}
+
+.patient-details p {
+    margin: 10px 0; /* Spacing between paragraphs */
+    font-size: 16px; /* Font size for better readability */
+    line-height: 1.5; /* Line height for easier reading */
+    color: #555; /* Dark grey text for details */
 }

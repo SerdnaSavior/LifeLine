@@ -15,7 +15,7 @@ public class Patients {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
 
     // Personal Information
-    private Long id;
+    private Integer id;
     private String first_name;
     private String last_name;
     private LocalDate dob;
@@ -27,7 +27,7 @@ public class Patients {
     private String address;
     private String city;
     private String state;
-    private String postalCode;
+    private String postal_code;
     private String phone_number;
     private String email;
 
@@ -59,8 +59,8 @@ public class Patients {
     }
 
     // Parameterized Constructor (all fields)
-    public Patients(Long id, String first_name,String last_name, LocalDate dob, String gender, String blood_type, String marital_status,
-                   String address, String city, String state, String postalCode, String phone_number, String email,
+    public Patients(Integer id, String first_name,String last_name, LocalDate dob, String gender, String blood_type, String marital_status,
+                   String address, String city, String state, String postal_code, String phone_number, String email,
                    String emergency_contact_name, String emergency_contact_phone, String allergies,
                    Long height, Long weight, String blood_pressure, String medical_history,
                    String insurance_provider, String insurance_policy_number, LocalDate insurance_expiration_date, String insurance_type,
@@ -75,7 +75,7 @@ public class Patients {
         this.address = address;
         this.city = city;
         this.state = state;
-        this.postalCode = postalCode;
+        this.postal_code = postal_code;
         this.phone_number = phone_number;
         this.email = email;
         this.emergency_contact_name = emergency_contact_name;
@@ -116,11 +116,11 @@ public class Patients {
         this.last_name = last_name;
     }
     // Personal Information
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
     
@@ -183,11 +183,11 @@ public class Patients {
     }
 
     public String getPostal_code() {
-        return postalCode;
+        return postal_code;
     }
 
-    public void setPostal_code(String postalCode) {
-        this.postalCode = postalCode;
+    public void setPostal_code(String postal_code) {
+        this.postal_code = postal_code;
     }
 
     public String getPhone_number() {
