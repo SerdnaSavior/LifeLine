@@ -23,12 +23,12 @@ public class Signupcontroller {
     @GetMapping()
     public String addNewUser(Model model) {
         Users user = new Users();
-        model.addAttribute("user", user);
+        model.addAttribute("newUser", user);
         return "signup";
     } 
 
     @PostMapping()
-    public String saveUser(@ModelAttribute("user") Users user,RedirectAttributes redirectAttributes) {
+    public String saveUser(@ModelAttribute("newUser") Users user,RedirectAttributes redirectAttributes) {
 
         if (userServiceImpl.usernameExists(user.getUsername())){
         redirectAttributes.addFlashAttribute("message", "Username already taken.");

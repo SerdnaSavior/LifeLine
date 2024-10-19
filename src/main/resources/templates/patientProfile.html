@@ -13,10 +13,10 @@
     <!-- Profile Page -->
     <div class="page">
         <div class="profile-info">
-                <h2>Patient Profile</h2>
+                <h1>Patient Profile</h1>
 
             <!-- Personal Information -->
-            <h3>Personal Information</h3>
+            <h2>Personal Information</h2>
             <div class="patient-details">
                 <p><strong>Patient ID:</strong> <span th:text="${patient.id}"></span></p>
                 <p><strong>First Name:</strong> <span th:text="${patient.first_name}"></span></p>
@@ -28,7 +28,7 @@
             </div>
 
             <!-- Contact Information -->
-            <h3>Contact Information</h3>
+            <h2>Contact Information</h2>
             <div class="patient-details">
                 <p><strong>Address:</strong> <span th:text="${patient.address}"></span></p>
                 <p><strong>City:</strong> <span th:text="${patient.city}"></span></p>
@@ -39,14 +39,14 @@
             </div>
 
             <!-- Emergency Contact Information -->
-            <h3>Emergency Contact Information</h3>
+            <h2>Emergency Contact Information</h2>
             <div class="patient-details">
                 <p><strong>Contact Name:</strong> <span th:text="${patient.emergency_contact_name}"></span></p>
                 <p><strong>Contact Phone:</strong> <span th:text="${patient.emergency_contact_phone}"></span></p>
             </div>
 
             <!-- Medical Information -->
-            <h3>Medical Information</h3>
+            <h2>Medical Information</h2>
             <div class="patient-details">
                 <p><strong>Allergies:</strong> <span th:text="${patient.allergies}"></span></p>
                 <p><strong>Height:</strong> <span th:text="${patient.height}"></span> cm</p>
@@ -56,7 +56,7 @@
             </div>
 
             <!-- Insurance Information -->
-            <h3>Insurance Information</h3>
+            <h2>Insurance Information</h2>
             <div class="patient-details">
                 <p><strong>Insurance Provider:</strong> <span th:text="${patient.insurance_provider}"></span></p>
                 <p><strong>Policy Number:</strong> <span th:text="${patient.insurance_policy_number}"></span></p>
@@ -65,7 +65,7 @@
             </div>
 
             <!-- Administrative Details -->
-            <h3>Administrative Details</h3>
+            <h2>Administrative Details</h2>
             <div class="patient-details">
                 <p><strong>Date of Registration:</strong> <span th:text="${patient.date_of_registration}"></span></p>
                 <p><strong>Doctor Assigned:</strong> <span th:text="${patient.doctor_assigned}"></span></p>

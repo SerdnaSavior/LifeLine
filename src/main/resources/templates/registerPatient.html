@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register Patient</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles.css"> <!-- Optional: Link to your CSS file -->
+     <link rel="stylesheet" href="styles.css"> <!-- Optional: Link to your CSS file -->
 </head>
 <body>
 
@@ -92,7 +91,7 @@
                 </div>
     
                 <!-- Emergency Contact -->
-                <h3>Emergency Contact</h3>
+                <h2>Emergency Contact</h2>
                 <div class="form-group">
                     <label for="emergencyContactName">Emergency Contact Name:</label>
                     <input type="text" id="emergencyContactName" th:field="*{emergency_contact_name}" placeholder="Enter emergency contact name" required>
@@ -104,7 +103,7 @@
                 </div>
     
                 <!-- Medical Information -->
-                <h3>Medical Information</h3>
+                <h2>Medical Information</h2>
                 <div class="form-group">
                     <label for="allergies">Allergies:</label>
                     <input type="text" id="allergies" th:field="*{allergies}" placeholder="Enter allergies (comma-separated)">
@@ -131,7 +130,7 @@
                 </div>
     
                 <!-- Insurance Information -->
-                <h3>Insurance Information</h3>
+                <h2>Insurance Information</h2>
                 <div class="form-group">
                     <label for="insuranceProvider">Insurance Provider:</label>
                     <input type="text" id="insuranceProvider" th:field="*{insurance_provider}" placeholder="Enter insurance provider">
@@ -153,7 +152,7 @@
                 </div>
     
                 <!-- Administrative Information -->
-                <h3>Administrative Details</h3>
+                <h2>Administrative Details</h2>
                 <div class="form-group">
                     <label for="doctorAssigned">Doctor Assigned:</label>
                     <input type="text" id="doctorAssigned" th:field="*{doctor_assigned}" placeholder="Enter doctor's name">

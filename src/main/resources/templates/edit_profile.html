@@ -4,16 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Profile</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> <!-- Bootstrap for styling -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div th:replace= "~{/layout :: header }"></div>
 
     <div class="page">
-    <div class="profile-info">
-        <h1>Edit Profile</h1>
-        <form th:action="@{/edit_profile}" method="POST" class="profile-form" th:object="${user}" >
+    <div class="signupbox">
+        <h2>Edit Profile</h2>
+        <form th:action="@{/edit_profile}" method="POST" class="signupForm" th:object="${user}" >
             <label for="first_name">First Name</label>
             <input type="text" id="first_name" th:field="*{first_name}" placeholder="Enter First" >
 
