@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div th:replace= "~{/layout :: header }"></div>
+    <div class="page">
+        <div class="registerPatientBox">
+            <h2 >Add Health Record</h2>
+            <form th:action="@{/add_health_record}" method="post" th:object="${healthRecord}">
+                <div class="form-group">
+                    <label for="patientFirstName">Patient Last Name</label>
+                    <input type="text" id="patientFirstName" th:field="*{patientFirstName}"  required>
+                </div>
+                <div class="form-group">
+                    <label for="patient Last Name">Patient Last Name</label>
+                    <input type="text" id="patientLastName" th:field="*{patientLastName}"  required>
+                </div>
+                <div class="form-group">
+                    <label for="visitDate">Visit Date</label>
+                    <input type="date" id="visitDate" th:field="*{visitDate}"  required>
+                </div>
+                <div class="form-group">
+                    <label for="diagnosis">Diagnosis</label>
+                    <input type="text" id="diagnosis" th:field="*{diagnosis}"  required>
+                </div>
+                <div class="form-group">
+                    <label for="prescription">Prescription</label>
+                    <textarea id="prescription" th:field="*{prescription}"  required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="medicalHistory">Medical History</label>
+                    <textarea id="medicalHistory" th:field="*{medicalHistory}"  required></textarea>
+                </div>
+                <button type="submit" >Save Record</button>
+            </form>
+        </div>
+    </div>
+    <div th:replace= "~{/layout :: footer }"></div>
+</body>
+</html>

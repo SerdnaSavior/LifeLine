@@ -15,7 +15,7 @@
     
     <div class="page">
         <div class="container">
-            <div class="dashboard-header">Patient Dashboard</div>
+            <div class="dashboard-header">Dashboard</div>
             
             <div class="grid">    
                 <a th:if="${user.getRole() == 'ADMIN'}" th:href="@{/appointments}">       
@@ -46,10 +46,18 @@
                     <div class="card-icon">💳</div>
                     <div class="card-title">Billing</div>
                 </div>
-                <div class="card">
-                    <div class="card-icon">📧</div>
-                    <div class="card-title">Messages</div>
-                </div>
+                <a th:if="${user.getRole() == 'ADMIN'}" th:href="@{/health_records}">
+                    <div class="card">
+                        <div class="card-icon">📝</div>
+                        <div class="card-title">View Health Records</div>
+                    </div>
+                </a>
+                <a th:if="${user.getRole() == 'ADMIN'}" th:href="@{/add_health_record}">
+                    <div class="card">
+                        <div class="card-icon">📝</div>
+                        <div class="card-title">Add New Health Record</div>
+                    </div>
+                </a>            
                 <div class="card">
                     <div class="card-icon">⚙️</div>
                     <div class="card-title">Settings</div>

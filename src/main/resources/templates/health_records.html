@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div th:replace= "~{/layout :: header }"></div>
+    <div class="page">
+        <div class="registerPatientBox">
+            <h2>Health Records</h2>
+            <table class="styled-table">
+                <thead>
+                    <tr>
+                        <th>Patient First Name</th>
+                        <th>Patient Last Name</th>
+                        <th>Visit Date</th>
+                        <th>Diagnosis</th>
+                        <th>Prescription</th>
+                        <th>Medical History</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="record : ${healthRecords}">
+                        <td th:text="${record.patientFirstName}">Patient First Name</td>
+                        <td th:text="${record.patientLastName}">Patient Last Name</td>
+                        <td th:text="${record.visitDate}">Visit Date</td>
+                        <td th:text="${record.diagnosis}">Diagnosis</td>
+                        <td th:text="${record.prescription}">Prescription</td>
+                        <td th:text="${record.medicalHistory}">Medical History</td>
+                        <td>
+                            <a th:href="@{/view_health_record(id=${record.id})}" >View Record</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <a href="/add_health_record" >Add Health Record</a>
+        </div>
+    </div>
+    <div th:replace= "~{/layout :: footer }"></div>
+</body>
+</html>

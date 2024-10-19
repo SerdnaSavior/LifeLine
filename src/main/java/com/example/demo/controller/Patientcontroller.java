@@ -135,6 +135,7 @@ public class Patientcontroller {
             patientServiceImpl.save(currentPatient);
             redirectAttributes.addFlashAttribute("message", "Patient Updated Successfully!");
             redirectAttributes.addFlashAttribute("alertClass", "alert-success");
+            session.removeAttribute("currentPatient");
             
             return "redirect:/patientProfile?id=" + currentPatient.getId();
         

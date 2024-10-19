@@ -61,31 +61,17 @@ public class Logincontroller {
             redirectAttributes.addFlashAttribute("message", "Username or Password Invalid ");
             redirectAttributes.addFlashAttribute("alertClass", "alert-danger");
             return "redirect:/login"; // Redirect back to the signup page
-        }
+        }     
 
         
-
-        if(user.getRole().equals("ADMIN")){
-           // Store the user in the session if authenticated
-            session.setAttribute("currentUser", user);
-            
-            redirectAttributes.addFlashAttribute("message", "Login Successful! Welcome " + username);
-            redirectAttributes.addFlashAttribute("alertClass", "alert-success");
-            redirectAttributes.addFlashAttribute("username", username);
-
-            return "redirect:/admin_dash"; 
-        }
-
+        // Store the user in the session if authenticated
+        session.setAttribute("currentUser", user);
         
-            // Store the user in the session if authenticated
-            session.setAttribute("currentUser", user);
-            
-            redirectAttributes.addFlashAttribute("message", "Login Successful! Welcome " + username);
-            redirectAttributes.addFlashAttribute("alertClass", "alert-success");
-            redirectAttributes.addFlashAttribute("username", username);
-            return "redirect:/pat_dash"; 
-        
-         
+        redirectAttributes.addFlashAttribute("message", "Login Successful! Welcome " + username);
+        redirectAttributes.addFlashAttribute("alertClass", "alert-success");
+        redirectAttributes.addFlashAttribute("username", username);
+
+        return "redirect:/dash";         
     }
 }
 

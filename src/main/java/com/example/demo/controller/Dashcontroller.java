@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestHeader;
 
 
 @Controller
-@RequestMapping("/admin_dash")
-public class Admin_Dashcontroller{
+@RequestMapping("/dash")
+public class Dashcontroller{
     @GetMapping()
         public String admin_dash (HttpSession session, Model model,RedirectAttributes redirectAttributes,@RequestHeader(value = "Referer", required = false) String referer) {
             Users currentUser = (Users) session.getAttribute("currentUser");
@@ -25,16 +25,15 @@ public class Admin_Dashcontroller{
             if (currentUser == null) {
                 return "redirect:/login";
             }
-            if (!"ADMIN".equals(currentUser.getRole())) {
-                redirectAttributes.addFlashAttribute("message", "You do not have permission to access this page");
-                redirectAttributes.addFlashAttribute("alertClass", "alert-danger");
-                return "redirect:" + (referer != null ? referer : "/access-denied");
-            }
+            // if (!"ADMIN".equals(currentUser.getRole())) {
+            //     redirectAttributes.addFlashAttribute("message", "You do not have permission to access this page");
+            //     redirectAttributes.addFlashAttribute("alertClass", "alert-danger");
+            //     return "redirect:" + (referer != null ? referer : "/access-denied");
+            // }
 
             // Add user info to the model to display on the dashboard
-            
             model.addAttribute("user", currentUser);
-             return "admin_dash";
+             return "dash";
 }
 }
 

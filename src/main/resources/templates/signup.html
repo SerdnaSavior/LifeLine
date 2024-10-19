@@ -4,8 +4,7 @@
     <meta charset="ISO-8859-1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles.css"> 
+     <link rel="stylesheet" href="styles.css"> 
 </head>
 <body>  
     <div th:replace= "~{layout :: header}"></div>  
@@ -15,7 +14,7 @@
        
 
         <h2>Register</h2>
-        <form class="signupForm" th:action="@{/signup}" method="POST" th:object="${user}">
+        <form class="signupForm" th:action="@{/signup}" method="POST" th:object="${newUser}">
             <input type="text" th:field="*{first_name}" placeholder="First Name" required>
             <input type="text" th:field="*{last_name}" placeholder="Last Name" required>
             <input type="date" th:field="*{dob}" placeholder="Date of Birth" required>
