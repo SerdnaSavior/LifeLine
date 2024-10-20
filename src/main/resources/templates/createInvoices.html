@@ -7,75 +7,37 @@
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
-    <div class="container">
-        <h1>Create Invoice</h1>
-        <form id="invoiceForm">
-            <!-- Patient ID -->
-            <label for="patientId">Patient ID:</label>
-            <input type="text" id="patientId" name="patientId" required>
-
-            <!-- Invoice Date -->
-            <label for="invoiceDate">Invoice Date:</label>
-            <input type="date" id="invoiceDate" name="invoiceDate" required>
-
-            <!-- Treatment Description -->
-            <label for="treatmentDesc">Treatment Description:</label>
-            <input type="text" id="treatmentDesc" name="treatmentDesc" required>
-
-            <!-- Amount -->
-            <label for="amount">Amount ($):</label>
-            <input type="number" id="amount" name="amount" required>
-
-            <!-- Submit Button -->
-            <button type="submit">Create Invoice</button>
-        </form>
-
-        <div class="success-message" id="successMessage">Invoice created successfully!</div>
-        <div class="error-message" id="errorMessage">There was an error creating the invoice. Please try again.</div>
-    </div>
-
-    <script>
-        // Form submission handler
-        document.getElementById('invoiceForm').addEventListener('submit', async function(event) {
-            event.preventDefault();
-
-            // Collect form data
-            const patientId = document.getElementById('patientId').value;
-            const invoiceDate = document.getElementById('invoiceDate').value;
-            const treatmentDesc = document.getElementById('treatmentDesc').value;
-            const amount = document.getElementById('amount').value;
-
-            // Send data to API endpoint 
-            try {
-                //Needs to be changed to connect to database
-                const response = await fetch('https://your-api-endpoint.com/api/invoices', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        patientId: patientId,
-                        invoiceDate: invoiceDate,
-                        treatmentDesc: treatmentDesc,
-                        amount: amount
-                    })
-                });
-
-                if (response.ok) {
-                    // Show success message
-                    document.getElementById('successMessage').style.display = 'block';
-                    document.getElementById('errorMessage').style.display = 'none';
-                } else {
-                    // Show error message
-                    document.getElementById('errorMessage').style.display = 'block';
-                    document.getElementById('successMessage').style.display = 'none';
-                }
-            } catch (error) {
-                // Handle errors in fetching
-                document.getElementById('errorMessage').style.display = 'block';
-                document.getElementById('successMessage').style.display = 'none';
-            }
-        });
-    </script>
+        <div th:replace="~{/layout :: header}"></div>
+        <div class="page">
+            <div class="createInvoiceBox">
+                <h2>Create Invoice</h2>
+                <form action="#" th:action="@{/invoices}" th:object="${invoice}" method="post">
+                    <div>
+                        <label for="patientName">Patient Name:</label>
+                        <input type="text" id="patientName" th:field="*{patientName}" required/>
+                    </div>
+                    <div>
+                        <label for="amount">Amount:</label>
+                        <input type="number" id="amount" th:field="*{amount}" required/>
+                    </div>
+                    <div>
+                        <label for="dateIssued">Date Issued:</label>
+                        <input type="date" id="dateIssued" th:field="*{dateIssued}" required/>
+                    </div>
+                    <div>
+                        <label for="status">Status:</label>
+                        <select id="status" th:field="*{status}">
+                            <option value="PAID">Paid</option>
+                            <option value="UNPAID">Unpaid</option>
+                            <option value="PENDING">Pending</option>
+                        </select>
+                    </div>
+                    <div>
+                        <button type="submit">Create Invoice</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </body>
+    
 </html>
