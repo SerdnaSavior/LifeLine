@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>View Invoices</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div class="container">
+            <h1>Invoices</h1>
+            <table id="invoicesTable">
+                <thead>
+                    <tr>
+                        <th>Invoice ID</th>
+                        <th>Patient ID</th>
+                        <th>Invoice Date</th>
+                        <th>Treatment Description</th>
+                        <th>Amount ($)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Invoice rows will be inserted here by JavaScript -->
+                </tbody>
+            </table>
+    
+            <div class="loading-message" id="loadingMessage">Loading invoices...</div>
+            <div class="error-message" id="errorMessage">Error loading invoices. Please try again later.</div>
+        </div>
+
+        <script>
+            // Fetch invoices and populate the table
+            async function fetchInvoices() {
+                try {
+                    //Update with API Endpoint
+                    const response = await fetch('https://your-api-endpoint.com/api/invoices'); 
+    
+                    if (!response.ok) {
+                        throw new Error('Failed to fetch invoices');
+                    }
+    
+                    const invoices = await response.json();
+                    populateInvoicesTable(invoices);
+                } catch (error) {
+                    document.getElementById('errorMessage').style.display = 'block';
+                    document.getElementById('loadingMessage').style.display = 'none';
+                }
+            }
+    
+            // Populate table with invoice data
+            function populateInvoicesTable(invoices) {
+                const tableBody = document.querySelector('#invoicesTable tbody');
+                tableBody.innerHTML = ''; // Clear any existing rows
+    
+                invoices.forEach(invoice => {
+                    const row = document.createElement('tr');
+    
+                    row.innerHTML = `
+                        <td>${invoice.invoiceId}</td>
+                        <td>${invoice.patientId}</td>
+                        <td>${invoice.invoiceDate}</td>
+                        <td>${invoice.treatmentDesc}</td>
+                        <td>${invoice.amount}</td>
+                    `;
+    
+                    tableBody.appendChild(row);
+                });
+    
+                document.getElementById('loadingMessage').style.display = 'none';
+            }
+    
+            // Fetch invoices on page load
+            document.addEventListener('DOMContentLoaded', fetchInvoices);
+        </script>
+    </body>
+</html>      
