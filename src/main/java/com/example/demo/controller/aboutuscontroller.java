@@ -11,7 +11,7 @@ import com.example.demo.model.Users;
 import jakarta.servlet.http.HttpSession;
 
 @Controller
-@RequestMapping("/aboutus")
+@RequestMapping("aboutus")
 public class aboutuscontroller {
 @GetMapping()
     public String aboutus(HttpSession session, Model model) {
