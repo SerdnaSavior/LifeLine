@@ -7,7 +7,7 @@
      <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div th:replace= "~{/layout :: header}"></div>
+    <div th:replace= "~{layout :: header}"></div>
     <div class="page">
         
     <div class="profile-info">
@@ -21,6 +21,6 @@
         <a th:href="@{/edit_profile}" class="">Edit Profile</a>
     </div>
     </div>
-    <div th:replace= "~{/layout :: footer }"></div>
+    <div th:replace= "~{layout :: footer }"></div>
 </body>
 </html>
