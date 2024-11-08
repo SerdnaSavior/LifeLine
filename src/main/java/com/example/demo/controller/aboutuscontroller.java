@@ -16,14 +16,14 @@ import jakarta.servlet.http.HttpSession;
 public class aboutuscontroller {
     @GetMapping()
         public String aboutus(HttpSession session, Model model) {
-            // Users currentUser = (Users) session.getAttribute("currentUser");
+            Users currentUser = (Users) session.getAttribute("currentUser");
 
-            //     // If user is not logged in, redirect to the login page
-            //     if (currentUser != null) {
-            //          // Add user info to the model to display on the dashboard
-            //     model.addAttribute("username", currentUser.getUsername());
-            //     model.addAttribute("user", currentUser);
-            //     }
+                // If user is not logged in, redirect to the login page
+                if (currentUser != null) {
+                     // Add user info to the model to display on the dashboard
+                model.addAttribute("username", currentUser.getUsername());
+                model.addAttribute("user", currentUser);
+                }
 
             return "aboutus";
         } 
