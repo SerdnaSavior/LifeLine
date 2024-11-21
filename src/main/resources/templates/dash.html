@@ -46,7 +46,7 @@
                     <div class="card-icon">💳</div>
                     <div class="card-title">Billing</div>
                 </div>
-                <a th:if="${user.getRole() == 'ADMIN'}" th:href="@{/health_records}">
+                <a th:if="${user.getRole() == 'ADMIN' || user.getRole() == 'patient'}" th:href="@{/health_records}">
                     <div class="card">
                         <div class="card-icon">📝</div>
                         <div class="card-title">View Health Records</div>
@@ -57,11 +57,14 @@
                         <div class="card-icon">📝</div>
                         <div class="card-title">Add New Health Record</div>
                     </div>
-                </a>            
-                <div class="card">
-                    <div class="card-icon">⚙️</div>
-                    <div class="card-title">Settings</div>
-                </div>
+                </a>
+                <a th:if="${user.getRole() == 'ADMIN'}" th:href="">
+                    <div class="card">
+                        <div class="card-icon">📝</div>
+                        <div class="card-title">Staff Management</div>
+                    </div>
+                </a>          
+                
             </div>
         </div>
     </div>

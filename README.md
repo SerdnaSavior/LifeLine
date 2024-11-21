@@ -11,6 +11,7 @@ maven for Java
 
 <h1>run app from vs code terminal</h1>
 mvn spring-boot:run  
+http://localhost:8080/
 
 <h1>hosting website  </h1>
 https://lifelineclinic.azurewebsites.net/
