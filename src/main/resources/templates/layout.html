@@ -48,9 +48,13 @@
             
             <a th:href= "@{/dash}">DashBoard</a>
             <a th:if= "${user.getRole() == 'ADMIN'}" th:href= "@{/viewPatients}">View Patients</a>
-            <a th:if= "${user.getRole() == 'ADMIN'}"  th:href= "@{/registerPatient}">Register Patient</a>
-            <a th:href= "@{/appointments}">View Appointments</a>
-            <a th:href= "@{/schedule_appointment}">Schedule an Appointment</a>                    
+            <a th:if= "${user.getRole() == 'ADMIN'}" th:href= "@{/registerPatient}">Register Patient</a>
+            <a th:if= "${user.getRole() == 'ADMIN'}" th:href= "@{/appointments}">View Appointments</a>
+            <a th:href= "@{/schedule_appointment}">Schedule Appointment</a>
+            <a th:href= "@{/health_records}">View Health Record</a>
+            <a th:if= "${user.getRole() == 'ADMIN'}" th:href= "@{/add_health_record}">Add Health Record</a>
+            <a th:if= "${user.getRole() == 'ADMIN'}">Staff Management</a>
+                              
             <a th:href= "@{/aboutus}">About-us</a> 
             
             </div>
