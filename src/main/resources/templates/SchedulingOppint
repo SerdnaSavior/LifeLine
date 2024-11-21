@@ -1,0 +1,207 @@
+!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule Appointment - Lifeline Clinic</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+       
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #007bff;
+        }
+
+        .calendar {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .calendar .day {
+            padding: 10px;
+            text-align: center;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .calendar .day:hover {
+            background-color: #f1f1f1;
+        }
+
+        .calendar .available {
+            background-color: #28a745;
+            color: #fff;
+        }
+
+        .calendar .unavailable {
+            background-color: #dc3545;
+            color: #fff;
+        }
+
+        .calendar .selected {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .appointment-form {
+            margin-top: 20px;
+        }
+
+        .appointment-form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .appointment-form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .appointment-form button:hover {
+            background-color: #0056b3;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Schedule an Appointment</h1>
+
+    <!-- Calendar Section -->
+    <div class="calendar" id="calendar"></div>
+
+    <!-- Appointment Form -->
+    <div class="appointment-form" id="appointment-form" style="display: none;">
+        <h3>Fill out your details</h3>
+        <input type="text" id="patient-name" placeholder="Enter Your Name">
+        <input type="email" id="patient-email" placeholder="Enter Your Email">
+        <input type="text" id="appointment-date" placeholder="Selected Date" readonly>
+        <button id="submit-appointment">Submit Appointment</button>
+    </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+    <p>&copy; 2024 Lifeline Clinic | All Rights Reserved</p>
+</div>
+
+<script>
+   
+    const unavailableDays = ["2024-11-22", "2024-11-25", "2024-11-29"];
+
+    function generateCalendar() {
+        const calendar = document.getElementById('calendar');
+        const currentDate = new Date();
+        const currentMonth = currentDate.getMonth();
+        const currentYear = currentDate.getFullYear();
+
+        
+        const firstDay = new Date(currentYear, currentMonth, 1);
+        const firstDayOfWeek = firstDay.getDay();
+
+     
+        const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+
+        
+        calendar.innerHTML = '';
+
+        // Add empty cells before the first day of the month
+        for (let i = 0; i < firstDayOfWeek; i++) {
+            const emptyCell = document.createElement('div');
+            calendar.appendChild(emptyCell);
+        }
+
+       
+        for (let day = 1; day <= daysInMonth; day++) {
+            const dayCell = document.createElement('div');
+            const currentDateString = `${currentYear}-${(currentMonth + 1).toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
+            
+            dayCell.textContent = day;
+            dayCell.classList.add('day');
+
+           
+            if (unavailableDays.includes(currentDateString)) {
+                dayCell.classList.add('unavailable');
+            } else {
+                dayCell.classList.add('available');
+            }
+
+            dayCell.onclick = function () {
+                if (dayCell.classList.contains('available')) {
+                    selectDate(dayCell, currentDateString);
+                }
+            };
+
+            calendar.appendChild(dayCell);
+        }
+    }
+
+  
+    function selectDate(dayCell, date) {
+      
+        const selectedDays = document.querySelectorAll('.selected');
+        selectedDays.forEach((cell) => cell.classList.remove('selected'));
+
+        dayCell.classList.add('selected');
+
+     
+        document.getElementById('appointment-form').style.display = 'block';
+        document.getElementById('appointment-date').value = date;
+    }
+
+    document.getElementById('submit-appointment').onclick = function () {
+        const name = document.getElementById('patient-name').value;
+        const email = document.getElementById('patient-email').value;
+        const appointmentDate = document.getElementById('appointment-date').value;
+
+        if (name && email && appointmentDate) {
+            alert(`Appointment confirmed for ${name} on ${appointmentDate}.`);
+        } else {
+            alert('Please fill out all the details.');
+        }
+    };
+
+    window.onload = generateCalendar;
+</script>
+
+</body>
+</html>
