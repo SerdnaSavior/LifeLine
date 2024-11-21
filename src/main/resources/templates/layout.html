@@ -47,8 +47,8 @@
             <div th:if="${user != null}">
             
             <a th:href= "@{/dash}">DashBoard</a>
-            <a th:href= "@{/viewPatients}">View Patients</a>
-            <a th:href= "@{/registerPatient}">Register Patient</a>
+            <a th:if= "${user.getRole() == 'ADMIN'}" th:href= "@{/viewPatients}">View Patients</a>
+            <a th:if= "${user.getRole() == 'ADMIN'}"  th:href= "@{/registerPatient}">Register Patient</a>
             <a th:href= "@{/appointments}">View Appointments</a>
             <a th:href= "@{/schedule_appointment}">Schedule an Appointment</a>                    
             <a th:href= "@{/aboutus}">About-us</a> 
