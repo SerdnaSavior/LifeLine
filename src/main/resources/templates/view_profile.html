@@ -3,24 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Profile</title>
-     <link rel="stylesheet" href="styles.css">
+    <title>Profile</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+ 
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        .page {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .profile-info {
+            background-color: #fff;
+            padding: 20px 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .patient-details p {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        .patient-details strong {
+            color: #333;
+        }
+
+        .patient-details span {
+            color: #007bff;
+        }
+
+        .profile-info a {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .profile-info a:hover {
+            background-color: #0056b3;
+        }
+
+     
+        @media (max-width: 768px) {
+            .profile-info {
+                padding: 15px 20px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div th:replace= "~{layout :: header}"></div>
+    <div th:replace="~{layout :: header}"></div>
+
     <div class="page">
-        
-    <div class="profile-info">
-        <h1>Profile</h1>
-        <div class="patient-details">
-            <p ><strong>Fist Name:</strong> <span th:text="${user.getFirst_name}"></span></p>
-            <p><strong>Last Name:</strong> <span th:text="${user.getLast_name}"></span></p>
-            <p><strong>Email:</strong> <span th:text="${user.getEmail()}"></span></p>
-            <p><strong>DOB:</strong> <span th:text="${user.getDob}"></span></p>
+        <div class="profile-info">
+            <h1>Profile</h1>
+            <div class="patient-details">
+                <p><strong>Husain</strong> <span th:text="${user.getFirst_name}"></span></p>
+                <p><strong>Falih</strong> <span th:text="${user.getLast_name}"></span></p>
+                <p><strong>husain123@lifeLine.com</strong> <span th:text="${user.getEmail()}"></span></p>
+                <p><strong>01/01/1987</strong> <span th:text="${user.getDob}"></span></p>
+            </div>
+            <a th:href="@{/edit_profile}" class="edit-link">Edit Profile</a>
         </div>
-        <a th:href="@{/edit_profile}" class="">Edit Profile</a>
     </div>
-    </div>
-    <div th:replace= "~{layout :: footer }"></div>
+
+    <div th:replace="~{layout :: footer}"></div>
 </body>
 </html>
