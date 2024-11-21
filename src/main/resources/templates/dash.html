@@ -36,7 +36,7 @@
                         <div class="card-title">View Patients</div>
                     </div>
                 </a>
-                <a th:if="${user.getRole() == 'ADMIN'}" th:href="@{/schedule_appointment}">       
+                <a th:if="${user.getRole() == 'ADMIN' || user.getRole() == 'patient'}" th:href="@{/schedule_appointment}">       
                     <div class="card">
                         <div class="card-icon">📅</div>
                         <div class="card-title">Schedule an Appointment</div>
@@ -49,7 +49,7 @@
                 <a th:if="${user.getRole() == 'ADMIN' || user.getRole() == 'patient'}" th:href="@{/health_records}">
                     <div class="card">
                         <div class="card-icon">📝</div>
-                        <div class="card-title">View Health Records</div>
+                        <div class="card-title">View Health Record</div>
                     </div>
                 </a>
                 <a th:if="${user.getRole() == 'ADMIN'}" th:href="@{/add_health_record}">
@@ -58,7 +58,7 @@
                         <div class="card-title">Add New Health Record</div>
                     </div>
                 </a>
-                <a th:if="${user.getRole() == 'ADMIN'}" th:href="">
+                <a th:if="${user.getRole() == 'ADMIN'}" >
                     <div class="card">
                         <div class="card-icon">📝</div>
                         <div class="card-title">Staff Management</div>
