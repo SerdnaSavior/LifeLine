@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Invoice</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="invoice-container">
+        <h1>Medical Invoice</h1>
+        <h3>Date: <span id="invoiceDate"></span></h3>
+
+        <!-- Patient Information -->
+        <div class="section">
+            <h2>Patient Information</h2>
+            <p><strong>Patient Name:</strong> <span id="patientName">John Doe</span></p>
+            <p><strong>Patient ID:</strong> <span id="patientId">12345</span></p>
+            <p><strong>Contact:</strong> <span id="patientContact">555-123-4567</span></p>
+        </div>
+
+        <!-- Treatment Details -->
+        <div class="section">
+            <h2>Treatment Details</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Description</th>
+                        <th>Cost (per unit)</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody id="treatmentDetails">
+                    <!-- Rows will be dynamically populated -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Totals -->
+        <div class="section">
+            <h2>Totals</h2>
+            <table>
+                <tbody>
+                    <tr class="totals">
+                        <td>Subtotal:</td>
+                        <td id="subtotal">$0.00</td>
+                    </tr>
+                    <tr class="totals">
+                        <td>Tax (10%):</td>
+                        <td id="tax">$0.00</td>
+                    </tr>
+                    <tr class="totals">
+                        <td>Total:</td>
+                        <td id="total">$0.00</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        // Sample data for treatments
+        const treatments = [
+            { description: "Consultation", cost: 50, quantity: 1 },
+            { description: "Blood Test", cost: 30, quantity: 2 },
+            { description: "X-Ray", cost: 100, quantity: 1 },
+        ];
+
+        /**
+         * Populates treatment details and calculates totals
+         */
+        function populateInvoice() {
+            const treatmentDetails = document.getElementById('treatmentDetails');
+            let subtotal = 0;
+
+            // Populate table rows
+            treatments.forEach(treatment => {
+                const row = document.createElement('tr');
+                const total = treatment.cost * treatment.quantity;
+                subtotal += total;
+
+                row.innerHTML = `
+                    <td>${treatment.description}</td>
+                    <td>$${treatment.cost.toFixed(2)}</td>
+                    <td>${treatment.quantity}</td>
+                    <td>$${total.toFixed(2)}</td>
+                `;
+
+                treatmentDetails.appendChild(row);
+            });
+
+            // Calculate totals
+            const tax = subtotal * 0.10; // 10% tax
+            const total = subtotal + tax;
+
+            // Update totals in the invoice
+            document.getElementById('subtotal').textContent = `$${subtotal.toFixed(2)}`;
+            document.getElementById('tax').textContent = `$${tax.toFixed(2)}`;
+            document.getElementById('total').textContent = `$${total.toFixed(2)}`;
+
+            // Set the invoice date
+            document.getElementById('invoiceDate').textContent = new Date().toLocaleDateString();
+        }
+
+        // Initialize the invoice
+        populateInvoice();
+    </script>
+</body>
+</html>
