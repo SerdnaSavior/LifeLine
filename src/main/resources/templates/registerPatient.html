@@ -18,19 +18,23 @@
                 <div class="form-group">
                     <label for="first_name">First Name:</label>
                     <input type="text" id="first_name" th:field="*{first_name}" placeholder="Enter patient name" maxlength="50" required>
+                        <span id="error_first_name" class="error-message"></span>
                     <label for="last_name">Last Name:</label>
                     <input type="text" id="last_name" th:field="*{last_name}" placeholder="Enter patient name" maxlength="50" required>
+                        <span id="error_last_name" class="error-message"></span>
                 </div>
     
                 <!-- Date of Birth -->
                 <div class="form-group">
                     <label for="dob">Date of Birth:</label>
                     <input type="date" id="dob" th:field="*{dob}" required>
+                        <span id="error_dob" class="error-message"></span>
                 </div>
     
                 <!-- Gender -->
                 <div class="form-group">
                     <label for="gender">Gender:</label>
+                        <span id="error_gender" class="error-message"></span>
                     <select id="gender" th:field="*{gender}" required>
                         <option value="" disabled selected>Select gender</option>
                         <option value="Male">Male</option>
@@ -77,17 +81,20 @@
                 <div class="form-group">
                     <label for="postalCode">Postal Code:</label>
                     <input type="text" id="postalCode" th:field="*{postal_code}" placeholder="Enter postal code" required>
+
                 </div>
     
                 <!-- Contact Details -->
                 <div class="form-group">
                     <label for="phoneNumber">Phone Number:</label>
                     <input type="tel" id="phoneNumber" th:field="*{phone_number}" placeholder="Enter contact number" pattern="/^\d{10}$/" required>
+                        <span id="error_phoneNumber" class="error-message"></span>
                 </div>
     
                 <div class="form-group">
                     <label for="email">Email:</label>
                     <input type="email" id="email" th:field="*{email}" placeholder="Enter email address" pattern="/^[^\s@]+@[^\s@]+\.[^\s@]+$/" required>
+                        <span id="error_email" class="error-message"></span>
                 </div>
     
                 <!-- Emergency Contact -->
@@ -172,5 +179,72 @@
     </div>
     
     <div th:replace= "~{layout :: footer }"></div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.querySelector('form'); // Select the form
+    
+            form.addEventListener('submit', function (event) {
+                let isValid = true; // Flag to track overall form validity
+    
+                // Clear previous error messages
+                document.querySelectorAll('.error-message').forEach(span => span.textContent = '');
+    
+                // First Name Validation
+                const firstName = document.getElementById('first_name').value.trim();
+                const errorFirstName = document.getElementById('error_first_name');
+                if (firstName === '') {
+                    isValid = false;
+                    errorFirstName.textContent = "First Name is required.";
+                }
+    
+                // Last Name Validation
+                const lastName = document.getElementById('last_name').value.trim();
+                const errorLastName = document.getElementById('error_last_name');
+                if (lastName === '') {
+                    isValid = false;
+                    errorLastName.textContent = "Last Name is required.";
+                }
+    
+                // Date of Birth Validation
+                const dob = document.getElementById('dob').value.trim();
+                const errorDob = document.getElementById('error_dob');
+                if (!dob) {
+                    isValid = false;
+                    errorDob.textContent = "Date of Birth is required.";
+                }
+    
+                // Phone Number Validation (10-digit format)
+                const phone = document.getElementById('phoneNumber').value.trim();
+                const errorPhone = document.getElementById('error_phoneNumber');
+                const phonePattern = /^\d{10}$/;
+                if (!phonePattern.test(phone)) {
+                    isValid = false;
+                    errorPhone.textContent = "Phone Number must be a valid 10-digit number.";
+                }
+    
+                // Email Validation
+                const email = document.getElementById('email').value.trim();
+                const errorEmail = document.getElementById('error_email');
+                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailPattern.test(email)) {
+                    isValid = false;
+                    errorEmail.textContent = "Email must be a valid email address.";
+                }
+    
+                // Gender Validation
+                const gender = document.getElementById('gender').value;
+                const errorGender = document.getElementById('error_gender');
+                if (!gender) {
+                    isValid = false;
+                    errorGender.textContent = "Gender must be selected.";
+                }
+    
+                // Prevent form submission if invalid
+                if (!isValid) {
+                    event.preventDefault(); // Prevent form submission
+                }
+            });
+        });
+    </script>
 </body>
 </html>
