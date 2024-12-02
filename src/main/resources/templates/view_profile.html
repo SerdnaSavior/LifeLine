@@ -83,10 +83,10 @@
         <div class="profile-info">
             <h1>Profile</h1>
             <div class="patient-details">
-                <p><strong>Husain</strong> <span th:text="${user.getFirst_name}"></span></p>
-                <p><strong>Falih</strong> <span th:text="${user.getLast_name}"></span></p>
-                <p><strong>husain123@lifeLine.com</strong> <span th:text="${user.getEmail()}"></span></p>
-                <p><strong>01/01/1987</strong> <span th:text="${user.getDob}"></span></p>
+                <p><strong>First Name:</strong> <span th:text="${user.getFirst_name}"></span></p>
+                <p><strong>Last Name:</strong> <span th:text="${user.getLast_name}"></span></p>
+                <p><strong>Email:</strong> <span th:text="${user.getEmail()}"></span></p>
+                <p><strong>DOB:</strong> <span th:text="${user.getDob}"></span></p>
             </div>
             <a th:href="@{/edit_profile}" class="edit-link">Edit Profile</a>
         </div>
